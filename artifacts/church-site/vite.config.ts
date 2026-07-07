@@ -29,6 +29,12 @@ if (!basePath) {
 
 export default defineConfig({
   base: basePath,
+  // Forward Replit secrets (VITE_* env vars) into import.meta.env for the client bundle.
+  // Vite only auto-exposes VITE_* from .env files; process.env vars need explicit forwarding.
+  define: {
+    'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(process.env.VITE_SUPABASE_URL ?? ''),
+    'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(process.env.VITE_SUPABASE_ANON_KEY ?? ''),
+  },
   plugins: [
     react(),
     tailwindcss(),

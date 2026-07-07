@@ -1,6 +1,6 @@
-# [Project name]
+# Church Website
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A church website with a public-facing site (coming soon) and a password-protected admin panel for managing sermons and events. Backed by Supabase for auth and database.
 
 ## Run & Operate
 
