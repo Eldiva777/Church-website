@@ -1,0 +1,39 @@
+Create a new Next.js 14 project (App Router) with TypeScript and Tailwind CSS. This will be a church website with a public-facing site and a password-protected admin panel.
+
+Install and configure the Supabase client (@supabase/supabase-js and @supabase/ssr). Read the Supabase URL and anon key from environment variables named NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY — do not hardcode these values anywhere.
+
+Create a Supabase client utility file that can be imported across the app.
+
+Set up the following database schema in Supabase using SQL (write and run the migration):
+
+Table: sermons
+- id (uuid, primary key, default gen_random_uuid())
+- title (text, required)
+- date (date, required)
+- youtube_url (text, required)
+- speaker (text, required — values will be either "Pastor Isaac" or "Pastor Gloria")
+- tag (text, optional)
+- created_at (timestamptz, default now())
+
+Table: events
+- id (uuid, primary key, default gen_random_uuid())
+- title (text, required)
+- event_date (date, required)
+- event_time (text, required)
+- location (text, required)
+- description (text, optional)
+- created_at (timestamptz, default now())
+
+Enable Row Level Security (RLS) on both tables with these policies:
+- Public (anonymous) users can SELECT (read) from both tables — no restrictions on reading.
+- Only authenticated users can INSERT, UPDATE, or DELETE on both tables.
+
+Set up Supabase Auth with email/password sign-in (no public sign-up — I will manually create the one admin user directly in the Supabase dashboard after this is built).
+
+Build a simple /admin/login page with an email and password form that signs in using Supabase Auth. On successful login, redirect to /admin/dashboard.
+
+Build a /admin/dashboard page that is protected — if there is no active Supabase Auth session, redirect to /admin/login. For now, this dashboard page just needs to show "Logged in as [user email]" and a working "Log out" button. No CRUD forms yet — that's the next phase.
+
+Do not build any public-facing pages yet (no homepage, sermons page, events page). Do not add any styling beyond Tailwind defaults. The only goal of this phase is: working Supabase connection, working schema with correct RLS, and a functional login/logout gate for /admin.
+
+After building this, show me the SQL that was run to create the tables and policies, and confirm the login flow works end to end.
