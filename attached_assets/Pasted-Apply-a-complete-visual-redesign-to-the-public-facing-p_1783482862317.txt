@@ -1,0 +1,45 @@
+Apply a complete visual redesign to the public-facing pages only (Home, Sermons, Events, Give, and shared Nav/Footer). Do not modify anything under /admin.
+
+The following image files already exist in the project root (not in /public/images) — reference them at their current location:
+- file_000000004a3c71f49cf47c469e8b16a4....png (logo)
+- FB_IMG_17833913831025600.jpg (hero background photo)
+- FB_IMG_17833901906569710.jpg (pastor bio photo)
+- IMG_20260415_155233.jpg (wife bio photo)
+
+Move these four files into /public/images/ (renaming them logo.png, hero.jpg, pastor.jpg, wife.jpg respectively) and update all references accordingly.
+
+COLOR SYSTEM (Tailwind config — add these as custom colors):
+- background-base: #150E1F (deep purple-black)
+- surface: #2A1B47 (cards, section backgrounds)
+- accent-gold: #D4AF37
+- black-frame: #0D0A12 (nav and footer only)
+- text-primary: #F4F1EA (off-white, not pure white)
+
+USAGE RULES:
+- 90% of each page uses background-base + text-primary
+- Gold is ONLY for: button borders/fills, hover states, thin divider lines under section headers, small icon accents — never as a large fill color
+- Black-frame is ONLY for the nav bar and footer
+
+TYPOGRAPHY:
+- Headers: "Playfair Display" from Google Fonts
+- Body text: "Inter"
+
+LOGO PLACEMENT:
+- Use logo.png in the nav bar, sized small, next to the church name text
+
+HERO IMAGE:
+- Use hero.jpg as a full-width background image behind the homepage hero text, with a dark purple overlay/gradient so text stays readable
+- Center-crop it so it reads as landscape
+
+ANIMATIONS (restrained, not decorative):
+- Hero headline fades up once on page load (no loop)
+- Section content fades up once when scrolled into view, staggered by max 100ms between elements
+- Buttons: on hover, a thin gold underline draws itself left-to-right — no glow, no gradient shimmer, no scale-bounce
+- No auto-playing background animations, no floating particles, no parallax layers
+
+ABOUT SECTION:
+- Add a simple About page or section (linked in nav) displaying pastor.jpg and wife.jpg side by side, captioned with their full names: "Pastor Isaac David Patani" and "Pastor Gloria Isaac"
+
+Keep the existing layout structure and content — this is a visual/styling pass only.
+
+After this is done, confirm all four public pages render without errors, the admin panel is untouched and still functional, and show me a summary of what changed.
